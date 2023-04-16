@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.me.test.mapper.ImageMapper">
+
+
+
+    <insert id="add" parameterType="Image" >
+        insert into image (id,imageUrl, imageName)
+        values (#{id},#{imageUrl}, #{imageName});
+    </insert>
+
+    <delete id="delete" parameterType="Integer">
+        delete
+        from image
+        where id = #{id};
+    </delete>
+
+<!--    <update id="update" parameterType="UserInfo">-->
+<!--        update metest.userinfo-->
+<!--        set username=#{username},-->
+<!--            password=#{password},-->
+<!--            authority=#{authority}-->
+<!--        where id = #{id};-->
+<!--    </update>-->
+
+<!--    <select id="queryById" parameterType="Integer" resultType="UserInfo">-->
+<!--        select *-->
+<!--        from metest.userinfo-->
+<!--        where id = #{id};-->
+<!--    </select>-->
+
+<!--    <select id="queryAll" resultType="UserInfo">-->
+<!--        select *-->
+<!--        from metest.userinfo;-->
+<!--    </select>-->
+<!--    &lt;!&ndash;模糊查询&ndash;&gt;-->
+<!--    <select id="searchByKeyWord" parameterType="String" resultType="UserInfo">-->
+<!--        SELECT * FROM metest.userinfo<where>-->
+<!--             <if test="keyword != null and keyword !=''">   username like concat('%',#{keyword},'%')-->
+<!--              OR password like concat(-->
+<!--                '%',#{keyword},'%')-->
+<!--             </if>-->
+
+<!--      </where>-->
+<!--    </select>-->
+<!--&lt;!&ndash;    v-->
+<!--    id deleteMoreUser(@Param("ids") String ids);&ndash;&gt;-->
+<!--    <delete id="batchDelete" parameterType="java.util.List" >delete  from metest.user fo where id in-->
+<!--        <foreach collection="list"  open="(" close=")" separator=","  item="item">-->
+<!--            #{item}-->
+<!--        </foreach>-->
+<!--    </delete>-->
+
+</mapper>

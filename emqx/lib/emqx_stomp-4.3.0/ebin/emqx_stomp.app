@@ -1,0 +1,13 @@
+{application,emqx_stomp,
+             [{description,"EMQ X Stomp Protocol Plugin"},
+              {vsn,"4.3.0"},
+              {modules,[emqx_stomp,emqx_stomp_connection,emqx_stomp_frame,
+                        emqx_stomp_heartbeat,emqx_stomp_protocol]},
+              {registered,[emqx_stomp_sup]},
+              {applications,[kernel,stdlib]},
+              {mod,{emqx_stomp,[]}},
+              {env,[]},
+              {licenses,["Apache-2.0"]},
+              {maintainers,["EMQ X Team <contact@emqx.io>"]},
+              {links,[{"Homepage","https://emqx.io/"},
+                      {"Github","https://github.com/emqx/emqx-stomp"}]}]}.

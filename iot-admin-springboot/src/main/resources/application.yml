@@ -1,0 +1,80 @@
+pagehelper:
+  helperDialect:  mysql
+  reasonable: true
+  supportMethodsArguments:  true
+  params: count=countSql
+server:
+  #设置端口号
+  port: 8087 #默认端口是8080
+spring:
+  datasource:
+    #数据库用户名
+    username: root
+    #数据库用户密码
+    password: 1234
+    #serverTimezone=UTC 解决时区的报错 一般mysql是8.0以上的是必须配置这个
+    #userUnicode=true&characterEncoding=utf-8 指定字符编码、解码格式
+    url: jdbc:mysql://localhost:3306/webiot?serverTimezone=UTC&userUnicode=true&characterEncoding=utf-8
+    #设置驱动类
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #设置数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
+    #druid 数据源专有配置
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
+    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
+    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+      # redis配置
+    redis:
+        host: 127.0.0.1
+        port: 6379
+        database: 0
+        jedis:
+          pool:
+            max-active: 200
+            max-idle: 500
+            min-idle: 8
+            max-wait: 10000
+        timeout: 5000
+
+# 配置mybatis
+mybatis-plus:
+
+  #指定pojo扫描包位置让mybatis自动扫描到指定义的pojo包下
+  type-aliases-package: com.me.test.pojo
+  #指定位置扫描Mapper接口对应的XML文件 classpath:xml文件位置
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  #添加spring-boot-starter-security后设置对应的用户名和密码
+  #开启懒加载
+  lazy-loading-enabled: true
+  #false 为按需加载
+  aggressive-lazy-loading: false
+
+
+
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+jwt:
+  config:
+    key: SecretKey #服务端加密所使用的密文（自拟）
+    ttl: 21600000 #毫秒

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <com.example.navigationview.widget.WidgetHeader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:header_title="@string/register" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="30dp">
+
+            <EditText
+                android:id="@+id/edt_username"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/shape_login_edt_bg"
+                android:hint="请输入用户名"
+                android:paddingLeft="8dp"
+                android:textColor="@color/appColorBlack"
+                android:textColorHint="@color/appColorGray"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_login_edt_bg"
+                android:hint="请输入密码"
+                android:inputType="textPassword"
+                android:maxLength="12"
+                android:paddingLeft="8dp"
+                android:textColor="@color/appColorBlack"
+                android:textColorHint="@color/appColorGray"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/edt_nickName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_login_edt_bg"
+                android:hint="请输入部门"
+                android:paddingLeft="8dp"
+                android:textColor="@color/appColorBlack"
+                android:textColorHint="@color/appColorGray"
+                android:textSize="13sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_login_edt_bg">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="8dp"
+                    android:text="性别"
+                    android:textColor="@color/appColorGray" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true">
+
+                    <RadioGroup
+                        android:id="@+id/rg_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="8dp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio_man"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@null"
+                            android:checked="true"
+                            android:drawableLeft="@drawable/selector_radio_sex_bg"
+                            android:drawablePadding="6dp"
+                            android:text="男"
+                            android:textColor="#888888"
+                            android:textSize="13sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio_woman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:button="@null"
+                            android:drawableLeft="@drawable/selector_radio_sex_bg"
+                            android:drawablePadding="6dp"
+                            android:text="女"
+                            android:textColor="#888888"
+                            android:textSize="13sp" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/edt_dateOfBirth"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_login_edt_bg"
+                android:hint="请输入出生日期"
+                android:paddingLeft="8dp"
+                android:textColor="@color/appColorBlack"
+                android:textColorHint="@color/appColorGray"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:background="@drawable/shape_login_edt_bg"
+                android:layout_height="48dp">
+
+                <TextView
+                    android:text="密保问题"
+                    android:gravity="center"
+                    android:textSize="13sp"
+                    android:textColor="@color/appColorGray"
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp"
+                    android:layout_height="match_parent"/>
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="30dp"
+                    android:background="@color/colorGray" />
+
+                <ImageView
+                    android:src="@drawable/icon_down"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="8dp"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_answer"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/shape_login_edt_bg"
+                android:hint="请输入密保答案"
+                android:paddingLeft="8dp"
+                android:textColor="@color/appColorBlack"
+                android:textColorHint="@color/appColorGray"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btn_register"
+                android:background="@drawable/shape_login_btn_bg"
+                android:textSize="13sp"
+                android:textColor="@color/colorWhite"
+                android:text="注册"
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.me.test.mapper.SensorMapper">
+
+
+
+    <select id="searchTime" parameterType="String" resultType="com.me.test.pojo.Datainfo_datainfo">
+
+        select * from datainfo_datainfo where time &gt;= #{date1}
+        and time &lt; #{date2}   order by time desc;
+    </select>
+
+
+</mapper>

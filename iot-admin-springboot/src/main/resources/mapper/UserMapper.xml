@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.me.test.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.me.test.pojo.User">
+        <result column="id" jdbcType="INTEGER" property="id"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="nickName" jdbcType="VARCHAR" property="nickName"/>
+        <result column="sex" jdbcType="INTEGER" property="sex"/>
+        <result column="dateOfBirth" jdbcType="VARCHAR" property="dateOfBirth"/>
+        <result column="pwdProtectionId" jdbcType="INTEGER" property="pwdProtectionId"/>
+        <result column="pwdProtectionVal" jdbcType="VARCHAR" property="pwdProtectionVal"/>
+    </resultMap>
+
+    <select id="selectByUsernameAndPassword" parameterType="String" resultType="com.me.test.pojo.User">
+        select * from user where username = #{username} and password = #{password}
+    </select>
+
+    <insert id="insertUser" parameterType="com.me.test.pojo.User">
+        insert into user (username,password,nickName,sex,dateOfBirth,pwdProtectionId,pwdProtectionVal)
+        values(#{username},#{password},#{nickName},#{sex},#{dateOfBirth},#{pwdProtectionId},#{pwdProtectionVal})
+    </insert>
+
+    <select id="selectByUsername" parameterType="String" resultMap="BaseResultMap">
+        select * from user where username = #{username}
+    </select>
+
+    <select id="selectByPrimaryKey" parameterType="Integer" resultMap="BaseResultMap">
+        select * from user where id = #{id}
+    </select>
+
+    <update id="updateByPrimaryKey" parameterType="com.me.test.pojo.User">
+        update user
+        <set>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nickName = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="dateOfBirth != null">
+                dateOfBirth = #{dateOfBirth,jdbcType=VARCHAR},
+            </if>
+            <if test="pwdProtectionId != null">
+                pwdProtectionId = #{pwdProtectionId,jdbcType=INTEGER},
+            </if>
+            <if test="pwdProtectionVal != null">
+                pwdProtectionVal = #{pwdProtectionVal,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="update" parameterType="User">
+        update user set username=#{username},password=#{password},nickName=#{nickName},dateOfBirth=#{dateOfBirth}
+        where id=#{id};
+    </update>
+    <select id="searchByKeyWord" parameterType="String" resultType="com.me.test.pojo.User">
+        SELECT * FROM user
+
+        <where>
+            <if test="keyword != null and keyword !=''">
+                pwdProtectionVal like concat('%',#{keyword},'%')
+                OR username like concat('%',#{keyword},'%')
+                OR nickName like concat('%',#{keyword},'%')
+
+            </if>
+
+        </where>
+        order by id desc;
+    </select>
+</mapper>
+

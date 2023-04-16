@@ -1,0 +1,12 @@
+{application,emqx_modules,
+             [{description,"EMQ X Module Management"},
+              {vsn,"4.3.2"},
+              {modules,[emqx_mod_acl_internal,emqx_mod_api_topic_metrics,
+                        emqx_mod_delayed,emqx_mod_presence,emqx_mod_rewrite,
+                        emqx_mod_subscription,emqx_mod_sup,
+                        emqx_mod_topic_metrics,emqx_modules,emqx_modules_api,
+                        emqx_modules_app]},
+              {applications,[kernel,stdlib]},
+              {mod,{emqx_modules_app,[]}},
+              {registered,[emqx_mod_sup]},
+              {env,[]}]}.

@@ -1,0 +1,13 @@
+{application,emqx_auth_pgsql,
+             [{description,"EMQ X Authentication/ACL with PostgreSQL"},
+              {vsn,"4.3.0"},
+              {modules,[emqx_acl_pgsql,emqx_auth_pgsql,emqx_auth_pgsql_app,
+                        emqx_auth_pgsql_cli,emqx_auth_pgsql_sup]},
+              {registered,[emqx_auth_pgsql_sup]},
+              {applications,[kernel,stdlib,epgsql,ecpool]},
+              {mod,{emqx_auth_pgsql_app,[]}},
+              {env,[]},
+              {licenses,["Apache-2.0"]},
+              {maintainers,["EMQ X Team <contact@emqx.io>"]},
+              {links,[{"Homepage","https://emqx.io/"},
+                      {"Github","https://github.com/emqx/emqx-auth-pgsql"}]}]}.

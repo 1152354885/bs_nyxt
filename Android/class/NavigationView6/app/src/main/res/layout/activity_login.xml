@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:text="Smart Agriculture"
+        android:layout_marginTop="60dp"
+        android:layout_width="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Welcome Back"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edt_username"
+        android:hint="请输入用户名"
+        android:layout_marginTop="30dp"
+        android:textColorHint="@color/appColorGray"
+        android:paddingLeft="8dp"
+        android:textColor="@color/appColorBlack"
+        android:textSize="13sp"
+        android:background="@drawable/shape_login_edt_bg"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:hint="请输入密码"
+        android:textColorHint="@color/appColorGray"
+        android:inputType="textPassword"
+        android:maxLength="12"
+        android:layout_marginTop="12dp"
+        android:paddingLeft="8dp"
+        android:textColor="@color/appColorBlack"
+        android:textSize="13sp"
+        android:background="@drawable/shape_login_edt_bg"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:text="登录"
+        android:background="@drawable/shape_login_btn_bg"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_forget_pwd"
+        android:text="忘记密码"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:textSize="13sp"
+        android:padding="8dp"
+        android:textColor="@color/appColorGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <TextView
+        android:background="@color/appColorGray"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:text="注册"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:textSize="14sp"
+        android:textColor="@color/appColorBlue"
+        android:padding="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
